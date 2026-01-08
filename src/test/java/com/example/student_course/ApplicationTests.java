@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class StudentCourseApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {
+        // verifies Spring Boot starts successfully
     }
-
 }

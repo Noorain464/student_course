@@ -1,7 +1,3 @@
 package com.example.student_course.repository;
 
-
-import com.example.student_course.model.Course;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface CourseRepository extends JpaRepository<Course, Long> {}
+// This repository is not needed for in-memory demo. File intentionally left blank.
