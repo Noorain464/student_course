@@ -5,7 +5,8 @@ on:
   
 jobs:
   build:
-    runs-on: scaler
+    runs-on: [self-hosted, student_course]
+
     steps:
     - uses: actions/checkout@v3
     - name: kubernetes deploy
