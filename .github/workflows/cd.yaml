@@ -2,12 +2,19 @@ name: CD deployment
 
 on:
   workflow_dispatch:
-  
+
 jobs:
   build:
     runs-on: [self-hosted, student_course]
 
     steps:
     - uses: actions/checkout@v3
-    - name: kubernetes deploy
-      run: kubectl run scalerpod --image=${{ secrets.DOCKERHUB_USERNAME }}/test:latest
+
+    - name: Kubernetes deploy
+      run: |
+        kubectl create namespace student-course --dry-run=client -o yaml | kubectl apply -f -
+        kubectl delete pod scalerpod -n student-course --ignore-not-found
+        kubectl run scalerpod \
+          --image=${{ secrets.DOCKERHUB_USERNAME }}/test:latest \
+          -n student-course
+
